@@ -27,7 +27,22 @@ export const Reducer = (state, action) => {
                 completed: false, 
                 id: Date.now() }
                 ];
+        case "TOGGLE_DONE":
+            return
+                state.map(todo => {
+                    if(action.payload === todo.id) {
+                        return { item: todo.item, 
+                                completed: !todo.completed, 
+                                id: todo.id };
+                    } else {
+                        return todo;
+                    }
+                });
+        case "DELETE_DONE":
+            return state.filter(item => {
+                return !item.completed;
+            });  
         default:
         return state;
-    }
+    };
 };  
