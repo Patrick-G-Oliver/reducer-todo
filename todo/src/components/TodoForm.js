@@ -32,12 +32,12 @@ const TodoForm = (props) => {
                 <button 
                     type="button"
                     onClick={() => {
-                        props.dispatch({type: "CLEAR_DONE"})}}>
+                        props.dispatch({type: "DELETE_DONE"})}}>
                     Remove
                 </button>
             </form>
         </div>
-    )
-}
+    );
+};
 
 export default TodoForm;

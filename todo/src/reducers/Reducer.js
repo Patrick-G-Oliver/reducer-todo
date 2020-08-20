@@ -1,5 +1,3 @@
-import React from "react";
-
 export const initialState = [
     {
         item: "mow lawn",
@@ -18,18 +16,17 @@ export const initialState = [
     }
 ];
 
-export const Reducer = (state, action) => {
+export const reducer = (state, action) => {
     switch(action.type) {
         case "ADD_TODO":
-            return 
-                [...state,
+            return [
+                ...state,
                 { item: action.payload, 
                 completed: false, 
                 id: Date.now() }
                 ];
         case "TOGGLE_DONE":
-            return
-                state.map(todo => {
+            return state.map(todo => {
                     if(action.payload === todo.id) {
                         return { item: todo.item, 
                                 completed: !todo.completed, 
